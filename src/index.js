@@ -17,4 +17,11 @@ function reduxModule(opts = {}) {
   }
 };
 
+export function getReducerFromModule(module) {
+  return _.reduce(module, (result, value, key) => {
+    result[key] = value.reducer;
+    return result;
+  }, {});
+}
+
 export default reduxModule;

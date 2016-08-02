@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getReducerFromModule = getReducerFromModule;
 
 var _lodash = require('lodash');
 
@@ -31,5 +32,12 @@ function reduxModule() {
 
   };
 };
+
+function getReducerFromModule(module) {
+  return _lodash2.default.reduce(module, function (result, value, key) {
+    result[key] = value.reducer;
+    return result;
+  }, {});
+}
 
 exports.default = reduxModule;

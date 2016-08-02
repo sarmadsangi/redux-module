@@ -2,8 +2,12 @@ import _ from 'lodash';
 
 function reduxModule(opts = {}) {
   return {
-      reducer: (state, payload) => {
-        opts.reducers[payload.type](state, payload);
+      reducer: (state = opts.state || {}, payload) => {
+        if (opts.reducers[payload.type]) {
+          return opts.reducers[payload.type](state, payload);
+        } else {
+          return state;
+        }
       },
       actions: _.reduce(opts.reducers, (result, value, key) => {
         result[key] = key;

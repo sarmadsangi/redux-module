@@ -1,10 +1,11 @@
 {
   "name": "redux-module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reduced boilerplate for redux",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "node_modules/babel-cli/bin/babel-node.js test/basic-test.js"
+    "test": "node_modules/babel-cli/bin/babel-node.js test/basic-test.js",
+    "build": "./node_modules/.bin/babel src -d dist"
   },
   "repository": {
     "type": "git",

@@ -9,6 +9,10 @@ const basicTest = reduxModule({
     openSideNav: (state, payload) => ({...state, side_nav_open: true }),
     closeSideNav: (state, payload) => ({...state, side_nav_open: false })
   },
+
+  actionCreators: {
+    
+  }
 });
 
 console.log(basicTest)

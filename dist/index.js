@@ -16,7 +16,7 @@ function reduxModule() {
 
   return {
     reducer: function reducer() {
-      var state = arguments.length <= 0 || arguments[0] === undefined ? opts.state || {} : arguments[0];
+      var state = arguments.length <= 0 || arguments[0] === undefined ? opts.initialSate || {} : arguments[0];
       var payload = arguments[1];
 
       if (opts.reducers[payload.type]) {

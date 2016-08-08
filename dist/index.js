@@ -28,8 +28,8 @@ function reduxModule() {
     actions: _lodash2.default.reduce(opts.reducers, function (result, value, key) {
       result[key] = key;
       return result;
-    }, {})
-
+    }, {}),
+    actionCreators: opts.actionCreators || {}
   };
 };
 

@@ -13,7 +13,7 @@ function reduxModule(opts = {}) {
         result[key] = key;
         return result;
       }, {}),
-
+      actionCreators: opts.actionCreators || {},
   }
 };
 

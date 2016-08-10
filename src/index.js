@@ -1,5 +1,16 @@
 import _ from 'lodash';
 
+export function getReducerFromModule(module) {
+  return module.reducer;
+};
+
+export function getReducersFromModules(module) {
+  return _.reduce(module, (result, value, key) => {
+    result[key] = this.getReducerFromModule(value);
+    return result;
+  }, {});
+};
+
 function reduxModule(opts = {}) {
   return {
       reducer: (state = opts.initialSate || {}, payload) => {
@@ -16,12 +27,5 @@ function reduxModule(opts = {}) {
       actionCreators: opts.actionCreators || {},
   }
 };
-
-export function getReducerFromModule(module) {
-  return _.reduce(module, (result, value, key) => {
-    result[key] = value.reducer;
-    return result;
-  }, {});
-}
 
 export default reduxModule;

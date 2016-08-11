@@ -7,9 +7,9 @@ const module = reduxModule({
   },
 
   reducers: {
-    openSideNav: (state) => ({...state, side_nav_open: true }),
-    closeSideNav: (state) => ({...state, side_nav_open: false }),
-    toggleSideNav: (state) => ({...state, side_nav_open: !state.side_nav_open }),
+    openSideNav: (state) => ({...state, sideNavOpen: true }),
+    closeSideNav: (state) => ({...state, sideNavOpen: false }),
+    toggleSideNav: (state) => ({...state, sideNavOpen: !state.sideNavOpen }),
   },
 
   actionCreators: {

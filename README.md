@@ -61,3 +61,22 @@ class App extends Component {
   }
 }
 ```
+
+## Where the heck are Actions ?
+
+Redux Modules auto generates mirrored key value actions based on function names provided in `reducers` object when creating Redux Module.
+
+For above reducer you will have following actions available,
+```javascript
+import { actions } from 'mobile/modules/appState';
+
+console.log(actions); //{ openSideNav: 'openSideNav', closeSideNav: 'closeSideNav' }
+```
+
+You can now use these actions in your usual way ie,
+```javascript
+import { actions } from 'mobile/modules/appState';
+
+// somewhere in the component
+dispatch({type: actions.openSideNav})
+```

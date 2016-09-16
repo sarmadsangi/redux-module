@@ -19,6 +19,8 @@ const module = reduxModule({
   }
 });
 
+console.log(module);
+
 describe('Module is a valid redux-module', function() {
 
   describe('Has a reducer', function() {

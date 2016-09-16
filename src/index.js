@@ -13,7 +13,7 @@ export function getReducersFromModules(module) {
 
 function reduxModule(opts = {}) {
   return {
-      reducer: (state = opts.initialSate || {}, payload) => {
+      reducer: (state = opts.initialState || {}, payload) => {
         if (opts.reducers[payload.type]) {
           return opts.reducers[payload.type](state, payload);
         } else {

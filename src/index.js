@@ -3,8 +3,8 @@ export function getReducerFromModule(module) {
 };
 
 export function getReducersFromModules(modules) {
-  return modules.reduce((result, value, key) => {
-    result[key] = this.getReducerFromModule(value);
+  return Object.keys(modules).reduce((result, key) => {
+    result[key] = modules[key].reducer;
     return result;
   }, {});
 };
@@ -14,8 +14,8 @@ export function getEffectsFromModule(module) {
 };
 
 export function getEffectsFromModules(modules) {
-  return modules.reduce((result, value, key) => {
-    result[key] = this.getEffectsFromModule(value);
+  return Object.keys(modules).reduce((result, key) => {
+    result[key] = modules[key].effects;
     return result;
   }, {});
 };
@@ -29,7 +29,7 @@ function reduxModule(opts = {}) {
           return state;
         }
       },
-      actions: opts.reducers.reduce((result, value, key) => {
+      actions: Object.keys(opts.reducers).reduce((result, key) => {
         result[key] = key;
         return result;
       }, {}),

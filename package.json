@@ -1,6 +1,6 @@
 {
   "name": "redux-module",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "Reduced boilerplate for redux",
   "main": "./dist/index.js",
   "scripts": {

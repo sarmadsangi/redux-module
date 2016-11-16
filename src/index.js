@@ -1,12 +1,21 @@
-import _ from 'lodash';
-
 export function getReducerFromModule(module) {
   return module.reducer;
 };
 
-export function getReducersFromModules(module) {
-  return _.reduce(module, (result, value, key) => {
+export function getReducersFromModules(modules) {
+  return reduce(modules, (result, value, key) => {
     result[key] = this.getReducerFromModule(value);
+    return result;
+  }, {});
+};
+
+export function getEffectsFromModule(module) {
+  return module.effects;
+};
+
+export function getEffectsFromModules(modules) {
+  return reduce(modules, (result, value, key) => {
+    result[key] = this.getEffectsFromModule(value);
     return result;
   }, {});
 };
@@ -20,11 +29,12 @@ function reduxModule(opts = {}) {
           return state;
         }
       },
-      actions: _.reduce(opts.reducers, (result, value, key) => {
+      actions: reduce(opts.reducers, (result, value, key) => {
         result[key] = key;
         return result;
       }, {}),
       actionCreators: opts.actionCreators || {},
+      effects: opts.effects || {},
   }
 };
 

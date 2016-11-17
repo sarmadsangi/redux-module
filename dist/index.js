@@ -12,10 +12,8 @@ function getReducerFromModule(module) {
 };
 
 function getReducersFromModules(modules) {
-  var _this = this;
-
-  return modules.reduce(function (result, value, key) {
-    result[key] = _this.getReducerFromModule(value);
+  return Object.keys(modules).reduce(function (result, key) {
+    result[key] = modules[key].reducer;
     return result;
   }, {});
 };
@@ -25,10 +23,8 @@ function getEffectsFromModule(module) {
 };
 
 function getEffectsFromModules(modules) {
-  var _this2 = this;
-
-  return modules.reduce(function (result, value, key) {
-    result[key] = _this2.getEffectsFromModule(value);
+  return Object.keys(modules).reduce(function (result, key) {
+    result[key] = modules[key].effects;
     return result;
   }, {});
 };
@@ -47,7 +43,7 @@ function reduxModule() {
         return state;
       }
     },
-    actions: opts.reducers.reduce(function (result, value, key) {
+    actions: Object.keys(opts.reducers).reduce(function (result, key) {
       result[key] = key;
       return result;
     }, {}),

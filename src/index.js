@@ -15,9 +15,12 @@ export function getEffectsFromModule(module) {
 
 export function getEffectsFromModules(modules) {
   return Object.keys(modules).reduce((result, key) => {
-    result[key] = modules[key].effects;
+    const effects = modules[key].effects;
+    if (effects) {
+      Object.keys(effects).forEach(key => result.push(effects[key]))
+    }
     return result;
-  }, {});
+  }, []);
 };
 
 function reduxModule(opts = {}) {

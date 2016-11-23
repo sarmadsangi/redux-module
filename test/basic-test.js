@@ -42,7 +42,9 @@ const module2 = reduxModule({
 
   effects: {
     // dummy function
-    handleComplexAsyncFlow: () => ({data: true}),
+    handleComplexAsyncFlow2: () => ({data: true}),
+    handleComplexAsyncFlow3: () => ({data: true}),
+
   },
 
   actionCreators: {

@@ -24,9 +24,14 @@ function getEffectsFromModule(module) {
 
 function getEffectsFromModules(modules) {
   return Object.keys(modules).reduce(function (result, key) {
-    result[key] = modules[key].effects;
+    var effects = modules[key].effects;
+    if (effects) {
+      Object.keys(effects).forEach(function (key) {
+        return result.push(effects[key]);
+      });
+    }
     return result;
-  }, {});
+  }, []);
 };
 
 function reduxModule() {
